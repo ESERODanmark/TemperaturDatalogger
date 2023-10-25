@@ -3,7 +3,7 @@ Nu skal du bygge en temperatur alarm!
 * **OBS!** Du skal bruge en @boardname@ i mindst version 2 (V2)
 
 ## Variabel 
-Opret en variabel og kald den `||variables:datalogningStatus||`
+Opret en variabel og kald den `||variables:datalogningStatus||`   
 
 ```blocks
 input.onButtonPressed(Button.A, function () {
@@ -72,7 +72,7 @@ input.onButtonPressed(Button.B, function () {
 
 
 ## Knap B: Sluk datalogning
-Træk blokken `||logic:hvis ... så||` ind i blokken `||input.når der trykkes på knap B||`
+Træk blokken `||logic:hvis sand så||` ind i blokken `||input.når der trykkes på knap B||`
 
 
 ```blocks
@@ -85,7 +85,7 @@ input.onButtonPressed(Button.B, function () {
 
 
 ## Knap B: Sluk datalogning
-Træk blokken `||logic: 0 = 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+Træk blokken `||logic: 0 = 0 ||` ind i blokken `||logic:hvis sand så||` hvor der står "sand"
 
 
 ```blocks
@@ -121,7 +121,7 @@ input.onButtonPressed(Button.B, function () {
 
 
 ## Knap B: Sluk datalogning
-Træk blokken `||variables:sæt datalogningStatus til||` ind i blokken `||logic:hvis ... så||`
+Træk blokken `||variables:sæt datalogningStatus til||` ind i blokken `||logic:hvis sand så||`
 
 
 ```blocks
@@ -248,7 +248,7 @@ input.onButtonPressed(Button.AB, function () {
 
 
 ## Knap A+B Slet en måling
-Træk blokken `||basic.ryd skærmen||` ind under `||basic.pause||`
+Træk blokken `||basic.ryd skærmen||` ind i bunden
 ```blocks
 input.onButtonPressed(Button.AB, function () {
     datalogger.deleteLog()
@@ -301,7 +301,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk blokken `||logic:hvis ... så||` ind i blokken under `||variables:sæt temperatur til||`
+Træk blokken `||logic:hvis sand så||` ind i blokken under `||variables:sæt temperatur til||`
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -313,7 +313,18 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk en `||logic: 0 ≥ 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+Træk en `||logic: 0 < 0 ||` ind i blokken `||logic:hvis sand så||` hvor der står "sand"
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    if (0 < 0) {
+
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Ændr `||logic: 0 < 0 ||` til `||logic: 0 ≥ 0 ||` ved at trykke på  < tegnet i `||logic: 0 < 0 ||` blokken
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -322,6 +333,7 @@ loops.everyInterval(1000, function () {
     }
 })
 ```
+
 
 
 
@@ -353,7 +365,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk endnu en `||logic:hvis ... så||` blok ind i den ind i `||logic:hvis ... så||` blokken du lige har lavet.
+Træk endnu en `||logic:hvis sand så||` blok ind i den ind i `||logic:hvis sand så||` blokken du lige har lavet.
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -368,7 +380,22 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk en `||logic: 0 ≤ 0 ||` ind i `||logic:hvis ... så||` blokken hvor der står "sand"
+Træk en `||logic: 0 < 0 ||` ind i `||logic:hvis sand så||` blokken hvor der står "sand"
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (0 < 0) {
+            
+        }
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Ændr `||logic: 0 < 0 ||` til `||logic: 0 ≤ 0 ||` ved at trykke på  < tegnet i `||logic: 0 < 0 ||` blokken
+
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -380,6 +407,7 @@ loops.everyInterval(1000, function () {
     }
 })
 ```
+
 
 
 ## Datalogning hvert sekund 
@@ -409,10 +437,11 @@ loops.everyInterval(1000, function () {
     }
 })
 ```
-
+## Variabel 
+Opret en variabel og kald den `||variables:temperaturStatus||`   
 
 ## Datalogning hvert sekund 
-Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis ... så||` du lige har lavet
+Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis sand så||` du lige har lavet
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -424,6 +453,20 @@ loops.everyInterval(1000, function () {
     }
 })
 ```
+## Datalogning hvert sekund 
+Træk en `||text: " "||` blok ind på 0's plads
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = " "
+        }
+    }
+})
+```
+
 
 
 ## Datalogning hvert sekund 
@@ -444,7 +487,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk blokken `||logic:hvis ... så||` ind under den sidste `||logic:hvis ... så||` du lige har lavet
+Træk blokken `||logic:hvis sand så||` ind under den sidste `||logic:hvis sand så||` du lige har lavet
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -462,7 +505,25 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk en `||logic: 0 > 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+Træk en `||logic: 0 < 0 ||` ind i blokken `||logic:hvis sand så||` hvor der står "sand"
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (0  < 0) {
+    }
+
+})
+```
+
+## Datalogning hvert sekund 
+Ændr `||logic: 0 < 0 ||` til `||logic: 0 > 0 ||` ved at trykke på  < tegnet i `||logic: 0 < 0 ||` blokken
+
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -477,8 +538,6 @@ loops.everyInterval(1000, function () {
 
 })
 ```
-
-
 
 ## Datalogning hvert sekund 
 Træk  blokken `||variables:temperatur||` ind i blokken `||logic: 0 > 0 ||` på det første 0's plads
@@ -518,7 +577,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis ... så||` du lige har lavet
+Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis sand så||` du lige har lavet
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -531,6 +590,27 @@ loops.everyInterval(1000, function () {
     }
     if (temperatur > 24) {
         temperaturStatus = 0
+    }
+    if (true) {
+        
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk en `||text: " "||` blok ind på 0's plads
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = " "
     }
     if (true) {
         
@@ -561,7 +641,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk blokken `||logic:hvis ... så||` ind under den sidste `||logic:hvis ... så||` du lige har lavet
+Træk blokken `||logic:hvis sand så||` ind i bunden af `||loops:every||` blokken. Se evt. **TIP** pæren.
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -582,7 +662,7 @@ loops.everyInterval(1000, function () {
 ```
 
 ## Datalogning hvert sekund 
-Træk en `||logic: 0 < 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+Træk en `||logic: 0 < 0 ||` ind i blokken `||logic:hvis sand så||` hvor der står "sand"
 ```blocks
 loops.everyInterval(1000, function () {
     temperatur = input.temperature()
@@ -646,7 +726,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis ... så||` du lige har lavet
+Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis sand så||` du lige har lavet
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -665,6 +745,28 @@ loops.everyInterval(1000, function () {
     }
 })
 ```
+
+## Datalogning hvert sekund 
+Træk en `||text: " "||` blok ind på 0's plads
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = " "
+    }
+})
+```
+
+
 
 ## Datalogning hvert sekund 
 Ret "0" til "Kold" i `||variables:sæt temperaturStatus til||` 
@@ -688,7 +790,7 @@ loops.everyInterval(1000, function () {
 ```
 
 ## Datalogning hvert sekund 
-Træk blokken `||logic:hvis ... så||` ind under den sidste `||logic:hvis ... så||` du lige har lavet
+Træk blokken `||logic:hvis sand så||` ind under den sidste `||logic:hvis sand så||` du lige har lavet
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -714,7 +816,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hvert sekund 
-Træk en `||logic: 0 = 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+Træk en `||logic: 0 = 0 ||` ind i blokken `||logic:hvis sand så||` hvor der står "sand"
 
 
 ```blocks
@@ -790,7 +892,7 @@ loops.everyInterval(1000, function () {
 ```
 
 ## Datalogning hvert sekund 
-Træk `||datalogger:log data||` ind i `||logic:hvis ... så||`
+Træk `||datalogger:log data||` ind i `||logic:hvis sand så||`
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -869,7 +971,7 @@ loops.everyInterval(1000, function () {
 ```
 
 ## Datalogning hver 100 ms
-Tryk på det lille plus i bunden af `||datalogger:log data||` blokken du lige har udfyldt
+Tryk på det lille plus helt til højre i `||datalogger:log data||` blokken du lige har udfyldt
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -897,7 +999,7 @@ loops.everyInterval(1000, function () {
 
 
 ## Datalogning hver 100 ms
-Nu dukker en ny kolonne op. Udfyld kolonnetitel med navnet "status" 
+Nu dukker en ny kolonne op. Udfyld kolonnetitel med navnet "Status" 
 
 ```blocks
 loops.everyInterval(1000, function () {
@@ -953,6 +1055,10 @@ loops.everyInterval(1000, function () {
 ```
 
 
+```template
+input.onButtonPressed(Button.A, function () {
+}
+```
 
 
 
