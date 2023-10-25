@@ -283,85 +283,680 @@ loops.everyInterval(1000, function () {
 ```
 
 ## Datalogning hvert sekund 
-Træk en `||logic:hvis ... så||` ind i blokken `||loops:every||`
+Træk blokken `||variables:sæt temperatur til||` ind i blokken  `||loops:every||`
 ```blocks
 loops.everyInterval(1000, function () {
+    temperatur = 0
+})
+```
+
+## Datalogning hvert sekund 
+Sæt `||input:temperatur||` ind i blokken  `||variables:sæt temperatur til||` hvor der står 0
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+})
+```
+
+
+
+## Datalogning hvert sekund 
+Træk blokken `||logic:hvis ... så||` ind i blokken under `||variables:sæt temperatur til||`
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    if (true) {
+
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk en `||logic: 0 ≥ 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    if (0 >= 0) {
+
+    }
+})
+```
+
+
+
+## Datalogning hvert sekund 
+Træk  blokken `||variables:temperatur||` ind i blokken `||logic: 0 ≥ 0 ||` på det første 0's plads
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 0) {
+
+    }
+})
+```
+
+
+
+## Datalogning hvert sekund 
+Ret det andet 0 til 19 
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk endnu en `||logic:hvis ... så||` blok ind i den ind i `||logic:hvis ... så||` blokken du lige har lavet.
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (True) {
+            
+        }
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk en `||logic: 0 ≤ 0 ||` ind i `||logic:hvis ... så||` blokken hvor der står "sand"
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (0 <= 0) {
+            
+        }
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk  blokken `||variables:temperatur||` ind i blokken `||logic: 0 ≤ 0 ||` på det første 0's plads
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 0) {
+            
+        }
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Ret det andet 0 til 24 
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            
+        }
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis ... så||` du lige har lavet
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = 0
+        }
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Ret "0" til "Normal" i `||variables:sæt temperaturStatus til||` 
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+})
+```
+
+
+
+
+## Datalogning hvert sekund 
+Træk blokken `||logic:hvis ... så||` ind under den sidste `||logic:hvis ... så||` du lige har lavet
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
     if (true) {
     }
+
 })
 ```
 
 
 ## Datalogning hvert sekund 
-Træk `||logic: 0 = 0 ||` ind i blokken `||logic:hvis ... så||` 
+Træk en `||logic: 0 > 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
 ```blocks
 loops.everyInterval(1000, function () {
-    if (0 == 0) {
-    }
-})
-```
-
-
-## Datalogning hvert sekund 
-Træk derefter variablen `||variables:datalogningStatus||` ind i `||logic: 0 = 0 ||` blokkens første 0
-
-```blocks
-loops.everyInterval(1000, function () {
-    if (datalogningStatus == 0) {
-    }
-})
-```
-
-## Datalogning hvert sekund 
-Skift værdien i `||logic: datalogningStatus = 0 ||` til 1. Nu spørger programmet om `||variables:datalogningStatus||` = 1
-
-```blocks
-loops.everyInterval(1000, function () {
-    if (datalogningStatus == 1) {
-    }
-})
-```
-
-## Datalogning hvert sekund 
-Træk endnu en `||logic:hvis ... så||` ind i blokken `||logic:hvis ... så||`. Denne bliver kun aktiveret hvis datalogning er tændt. 
-
-```blocks
-loops.everyInterval(1000, function () {
-    if (datalogningStatus == 1) {
-        temperatur = input.temperature()
-        if (true) {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
         }
+    }
+    if (0  > 0) {
+    }
+
+})
+```
+
+
+
+## Datalogning hvert sekund 
+Træk  blokken `||variables:temperatur||` ind i blokken `||logic: 0 > 0 ||` på det første 0's plads
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 0) {
+    }
+
+})
+```
+
+
+## Datalogning hvert sekund 
+Ret det andet 0 til 24
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+    }
+
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis ... så||` du lige har lavet
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = 0
+    }
+    if (true) {
         
     }
 })
 ```
 
 ## Datalogning hvert sekund 
-Træk blokken `||variables:sæt temperatur til||` ind i blokken `||logic:hvis ... så||`
-
+Ret "0" til "Varm" i `||variables:sæt temperaturStatus til||` 
 
 ```blocks
 loops.everyInterval(1000, function () {
-    if (datalogningStatus == 1) {
-        temperatur = input.temperature()
-        if (true) {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
         }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (true) {
         
     }
 })
 ```
 
-## Datalogning
-Træk `||logic: og ||` ind under `||variables:sæt temperatur til||`
+
+## Datalogning hvert sekund 
+Træk blokken `||logic:hvis ... så||` ind under den sidste `||logic:hvis ... så||` du lige har lavet
 
 ```blocks
 loops.everyInterval(1000, function () {
-    if (datalogningStatus == 1) {
-        temperatur = input.temperature()
-        // Vurder temperaturområde
-        if (true && true) {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
         }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (true) {
+        
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk en `||logic: 0 < 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (0 < 0) {
+        
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk  blokken `||variables:temperatur||` ind i blokken `||logic: 0 < 0 ||` på det første 0's plads
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 0) {
+        
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Ret det andet 0 til 19
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk blokken `||variables:sæt temperaturStatus til||` ind i blokken `||logic:hvis ... så||` du lige har lavet
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = 0
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Ret "0" til "Kold" i `||variables:sæt temperaturStatus til||` 
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk blokken `||logic:hvis ... så||` ind under den sidste `||logic:hvis ... så||` du lige har lavet
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (true) {
+
         )
     }
 })
 ```
+
+
+## Datalogning hvert sekund 
+Træk en `||logic: 0 = 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
+
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (0 == 0) {
+
+        )
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk  blokken `||variables:datalogningStatus||` ind i blokken `||logic: 0 = 0 ||` på det første 0's plads
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 0) {
+
+        )
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Skriv 1 på det andet 0's plads
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+
+        )
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk `||datalogger:log data||` ind i `||logic:hvis ... så||`
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+        datalogger.log(
+        datalogger.createCV("", ""),
+        )
+    }
+})
+```
+
+
+## Datalogning hver 100 ms
+Udfyld kolonnetitel med navnet "Temperatur" 
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+        datalogger.log(
+        datalogger.createCV("Temperatur", ""),
+        )
+    }
+})
+```
+
+## Datalogning hver 100 ms
+Udfyld "value" med blokken `||variables:temperatur||`
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+        datalogger.log(
+        datalogger.createCV("Temperatur", temperatur),
+        )
+    }
+})
+```
+
+## Datalogning hver 100 ms
+Tryk på det lille plus i bunden af `||datalogger:log data||` blokken du lige har udfyldt
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+        datalogger.log(
+        datalogger.createCV("Temperatur", temperatur),
+        datalogger.createCV("", "")
+        )
+    }
+})
+```
+
+
+## Datalogning hver 100 ms
+Nu dukker en ny kolonne op. Udfyld kolonnetitel med navnet "status" 
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+        datalogger.log(
+        datalogger.createCV("Temperatur", temperatur),
+        datalogger.createCV("Status", "")
+        )
+    }
+})
+```
+
+
+
+## Datalogning hver 100 ms
+Udfyld "value" med blokken `||variables:temperaturStatus||`
+
+```blocks
+loops.everyInterval(1000, function () {
+    temperatur = input.temperature()
+    // Vurder temperaturområde
+    if (temperatur >= 19) {
+        if (temperatur <= 24) {
+            temperaturStatus = "Normal"
+        }
+    }
+    if (temperatur > 24) {
+        temperaturStatus = "Varm"
+    }
+    if (temperatur < 19) {
+        temperaturStatus = "Kold"
+    }
+    if (datalogningStatus == 1) {
+        datalogger.log(
+        datalogger.createCV("Temperatur", temperatur),
+        datalogger.createCV("Status", temperaturStatus)
+        )
+    }
+})
+```
+
+
+
+
+
+
+
+
+
