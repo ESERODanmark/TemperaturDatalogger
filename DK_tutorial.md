@@ -84,10 +84,6 @@ input.onButtonPressed(Button.B, function () {
 ```
 
 
-
-
-
-
 ## Knap B: Sluk datalogning
 Træk blokken `||logic: 0 = 0 ||` ind i blokken `||logic:hvis ... så||` hvor der står "sand"
 
@@ -252,23 +248,6 @@ input.onButtonPressed(Button.AB, function () {
 
 
 ## Knap A+B Slet en måling
-Træk blokken `||basic.pause||` ind under symbolet du har tegnet
-```blocks
-input.onButtonPressed(Button.AB, function () {
-    datalogger.deleteLog()
-    basic.showLeds(`
-        . . . . .
-        . # . # .
-        . . # . .
-        . # . # .
-        . . . . .
-        `)
-    basic.pause(1000)
-})
-```
-
-
-## Knap A+B Slet en måling
 Træk blokken `||basic.ryd skærmen||` ind under `||basic.pause||`
 ```blocks
 input.onButtonPressed(Button.AB, function () {
@@ -280,7 +259,109 @@ input.onButtonPressed(Button.AB, function () {
         . # . # .
         . . . . .
         `)
-    basic.pause(1000)
     basic.clearScreen()
+})
+```
+
+## Datalogning
+Opret variablen  `||variables:temperatur||`
+
+## Datalogning hvert sekund 
+Træk blokken `||loops:every||` ind på skrivebordet
+
+```blocks
+loops.everyInterval(500, function () {
+})
+```
+
+## Datalogning hvert sekund 
+Ændr værdien af `||loops:every||` fra 500 til 1 sekund (1000 ms)  
+
+```blocks
+loops.everyInterval(1000, function () {
+})
+```
+
+## Datalogning hvert sekund 
+Træk en `||logic:hvis ... så||` ind i blokken `||loops:every||`
+```blocks
+loops.everyInterval(1000, function () {
+    if (true) {
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk `||logic: 0 = 0 ||` ind i blokken `||logic:hvis ... så||` 
+```blocks
+loops.everyInterval(1000, function () {
+    if (0 == 0) {
+    }
+})
+```
+
+
+## Datalogning hvert sekund 
+Træk derefter variablen `||variables:datalogningStatus||` ind i `||logic: 0 = 0 ||` blokkens første 0
+
+```blocks
+loops.everyInterval(1000, function () {
+    if (datalogningStatus == 0) {
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Skift værdien i `||logic: datalogningStatus = 0 ||` til 1. Nu spørger programmet om `||variables:datalogningStatus||` = 1
+
+```blocks
+loops.everyInterval(1000, function () {
+    if (datalogningStatus == 1) {
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk endnu en `||logic:hvis ... så||` ind i blokken `||logic:hvis ... så||`. Denne bliver kun aktiveret hvis datalogning er tændt. 
+
+```blocks
+loops.everyInterval(1000, function () {
+    if (datalogningStatus == 1) {
+        temperatur = input.temperature()
+        if (true) {
+        }
+        
+    }
+})
+```
+
+## Datalogning hvert sekund 
+Træk blokken `||variables:sæt temperatur til||` ind i blokken `||logic:hvis ... så||`
+
+
+```blocks
+loops.everyInterval(1000, function () {
+    if (datalogningStatus == 1) {
+        temperatur = input.temperature()
+        if (true) {
+        }
+        
+    }
+})
+```
+
+## Datalogning
+Træk `||logic: og ||` ind under `||variables:sæt temperatur til||`
+
+```blocks
+loops.everyInterval(1000, function () {
+    if (datalogningStatus == 1) {
+        temperatur = input.temperature()
+        // Vurder temperaturområde
+        if (true && true) {
+        }
+        )
+    }
 })
 ```

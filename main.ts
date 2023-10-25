@@ -39,11 +39,15 @@ loops.everyInterval(1000, function () {
     if (datalogningStatus == 1) {
         temperatur = input.temperature()
         // Vurder temperaturområde
-        if (temperatur >= 19 && temperatur <= 24) {
-            temperaturStatus = "Normal"
-        } else if (temperatur > 24) {
+        if (temperatur >= 19) {
+            if (temperatur <= 24) {
+                temperaturStatus = "Normal"
+            }
+        }
+        if (temperatur > 24) {
             temperaturStatus = "Varm"
-        } else {
+        }
+        if (temperatur < 19) {
             temperaturStatus = "Kold"
         }
         datalogger.log(
