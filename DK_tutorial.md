@@ -1,6 +1,9 @@
-## Svingningsmåleren! 
-Nu skal du bygge en temperatur alarm!   
-* **OBS!** Du skal bruge en @boardname@ i mindst version 2 (V2)
+## Temperaturalarmen @unplugged
+**OBS!** Du skal bruge en @boardname@ i mindst version 2 (V2)
+![](https://github.com/ESERODanmark/TemperaturDatalogger/blob/master/ikon_tempAlert.png?raw=true)
+
+## Multi-tælleren @unplugged
+![](https://github.com/ESERODanmark/multicounter/blob/master/clickTip.gif?raw=true)
 
 ## Variabel 
 Opret en variabel og kald den `||variables:datalogningStatus||`   
@@ -1059,10 +1062,3 @@ loops.everyInterval(1000, function () {
 input.onButtonPressed(Button.A, function () {
 }
 ```
-
-
-
-
-
-
-
