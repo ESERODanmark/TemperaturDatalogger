@@ -1,9 +1,11 @@
-## Temperaturalarmen @unplugged
-![](https://github.com/ESERODanmark/TemperaturDatalogger/blob/master/ikon_tempAlert.png?raw=true)
+## Temperaturmåler @unplugged
 **OBS!** Du skal bruge en @boardname@ i mindst version 2 (V2)
+<div style="display: flex; justify-content: space-around;">
+  <img src="https://github.com/ESERODanmark/TemperaturDatalogger/blob/master/ikon_tempAlert.png?raw=true" alt="DampVibrations" width="300"/>
+  <img src="https://github.com/ESERODanmark/multicounter/blob/master/clickTip.gif?raw=true" alt="ClickTip" width="300"/>
+</div>
 
-## Temperatur-alarmen @unplugged
-![](https://github.com/ESERODanmark/multicounter/blob/master/clickTip.gif?raw=true)
+
 
 ## Variabel 
 Opret en variabel og kald den `||variables:datalogningStatus||`   
