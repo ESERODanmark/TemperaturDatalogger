@@ -1,4 +1,4 @@
-## Temperaturalarmen @unplugged
+## Temperaturmåleren @unplugged
 **OBS!** Du skal bruge en @boardname@ i mindst version 2 (V2)
 <div style="display: flex; justify-content: space-around;">
   <img src="https://github.com/ESERODanmark/TemperaturDatalogger/blob/master/ikon_tempAlert.png?raw=true" alt="DampVibrations" width="300"/>
